@@ -1,0 +1,33 @@
+name: Build and Deploy Function App Docker to ACR
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: function-app
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Docker login to ACR
+        uses: docker/login-action@v3
+        with:
+          registry: cne3acr2.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: function-app
+          file: function-app/Dockerfile
+          push: true
+          tags: cne3acr2.azurecr.io/veso-function-app-2

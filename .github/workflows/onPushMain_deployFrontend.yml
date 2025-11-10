@@ -1,0 +1,48 @@
+name: Build and deploy Node.js app to Azure - frontend
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    defaults:
+      run:
+        working-directory: front-end
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+
+      - name: Build and test.
+        env:
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
+        run: |
+          echo NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }} > .env
+          npm clean-install
+          npm run build
+          npm run standalone
+
+      - name: Prepare the package.
+        run: |
+          mv .next/standalone package
+
+      - name: "Deploy to Azure Web App"
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: "veso-frontend-2"
+          slot-name: "Production"
+          package: "front-end/package"
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_88F48DC322EE4FE388EB10E5BED1F4D4 }}

@@ -1,0 +1,25 @@
+{
+    "header.nav.language": "Language",
+    "header.nav.home": "Home",
+    "header.nav.cart": "Cart",
+    "header.nav.profile": "Profile",
+    "header.nav.login": "Login",
+    "header.nav.logout": "Logout",
+
+    "login.valid.usernameErrorMessage": "Username is required.",
+    "login.valid.passwordErrorMessage": "Password is required.",
+
+    "login.handleSubmit.redirecting": "Redirecting...",
+    "login.handleSubmit.customerDoesNotExist": "Customer does not exist.",
+    "login.handleSubmit.incorrectPassword": "Incorrect password.",
+    "login.handleSubmit.otherErrorMessage": "An error has occurred. Please try again later.",
+
+    "login.main.notLoggedInYet": "Not logged in yet? ",
+    "login.main.register": "Register",
+    "login.main.form.label.username": "Username: ",
+    "login.main.form.label.usernameErrorMessage": "ErrorMessage: ",
+    "login.main.form.label.password": "Password: ",
+    "login.main.form.passwordErrorMessage": "ErrorMessage: ",
+    "login.main.form.button.showPassword": "Just show that password",
+    "login.main.form.submit": "Login!"
+}

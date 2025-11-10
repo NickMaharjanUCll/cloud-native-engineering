@@ -1,0 +1,17 @@
+.header {
+    color: white;
+    background-color: green;
+    display: flex;
+  }
+  
+  .nav {
+    background-color: red;
+    flex: 2;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .veso {
+    flex: 0.6;
+    text-align: center;
+  }

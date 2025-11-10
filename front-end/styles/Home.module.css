@@ -1,0 +1,83 @@
+/* TODO: Selecting with ID does not work. */
+.main {
+  background-color: rgb(221, 238, 255);
+
+  padding: 25px 0;
+}
+
+.main button:first-child {
+  color: red;
+
+  width: 150px;
+  margin: 0 auto 35px auto;
+
+  display: block;
+}
+
+.main>p {
+  margin-top: 35px;
+
+  text-align: center;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10rem;
+
+  padding: 0 1rem;
+}
+
+.products article {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+
+  width: 170px;
+  height: auto;
+  padding: 10px;
+  margin: auto;
+
+  align-items: center;
+  border: 2px solid green;
+  background-color: antiquewhite;
+}
+
+.products article img {
+  border: 3px solid white;
+  width: 150px;
+  height: 150px;
+}
+
+.products article p {
+  text-align: center;
+}
+
+.products article button {
+  margin: 15px 0;
+}
+
+.changeQuantityDiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  margin-top: 15px;
+
+  color: red;
+}
+
+.changeQuantityDiv button {
+  width: 15px !important;
+  margin: 0px !important;
+  padding: 10px 30px !important;
+}
+
+@media only screen and (max-width: 1000px) {
+  .products {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+  }
+
+}
